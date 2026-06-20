@@ -1,0 +1,11 @@
+_base_: ../base.yaml
+# MeZO: zeroth-order, forward-only direct competitor (§6).
+# Same dtype/threads/data/step-budget as LoCA for a fair wall-clock-to-quality comparison.
+method: "mezo"
+mezo:
+  eps: 1.0e-3              # perturbation scale
+  lr: 1.0e-6              # ZO step size (MeZO uses tiny lr)
+  n_perturb: 1            # n-SPSA samples per step
+  steps: 20000           # ZO needs many steps; budget matched in wall-clock comparisons
+  # MeZO perturbs the same trainable params as LoCA for fairness:
+  trainable: "residual_lora"  # residual_lora | full

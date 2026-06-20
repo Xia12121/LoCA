@@ -1,0 +1,15 @@
+torch>=2.2
+transformers>=4.44
+datasets>=2.20
+accelerate>=0.33
+peft>=0.12          # baseline LoRA only
+lm-eval>=0.4.4      # MMLU / IFEval (GPU box)
+numpy
+scipy
+pandas
+matplotlib
+pyyaml
+tqdm
+pytest
+safetensors
+wandb              # optional

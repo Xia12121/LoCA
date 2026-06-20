@@ -1,0 +1,11 @@
+_base_: base.yaml
+# LoCA-F: feedback variant (main contribution).
+method: "loca_f"
+loca:
+  variant: "F"             # F=feedback (main) / D=distillation (ablation)
+  feedback: "random"       # random / sketch
+  sketch_rank: 8           # only used when feedback=sketch
+  eta: 0.05                # HIGH sensitivity, must sweep [0.01,0.02,0.05,0.1]
+  lam: 0.1                 # mid sensitivity, sweep [0.01,0.1,1.0]
+  T: 5                     # outer block-coordinate iters, sweep [1,3,5,10]
+  mode: "jacobi"           # jacobi (parallel) / gauss_seidel (more accurate)

@@ -1,0 +1,11 @@
+_base_: base.yaml
+# LoCA-D: distillation variant (ablation baseline).
+# tau_l comes from the frozen model's teacher-forced block-l hidden state on (x,y),
+# instead of the top-error feedback projection. Everything else is identical.
+method: "loca_d"
+loca:
+  variant: "D"
+  eta: 0.05                # for D, eta scales the move toward the teacher target
+  lam: 0.1
+  T: 5
+  mode: "jacobi"

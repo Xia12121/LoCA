@@ -1,0 +1,11 @@
+_base_: ../base.yaml
+# LoRA via PEFT + standard backprop SFT. Quality upper bound (§6).
+method: "lora"
+lora:
+  r: 32
+  alpha: 64
+  dropout: 0.0
+  target_modules: ["q_proj", "k_proj", "v_proj", "o_proj"]
+  lr: 2.0e-4
+  epochs: 3
+  grad_accum: 1

@@ -1,0 +1,7 @@
+_base_: ../base.yaml
+# Full-parameter SFT. Upper bound, small models only (§6).
+method: "full_sft"
+full_sft:
+  lr: 1.0e-5
+  epochs: 3
+  grad_accum: 1

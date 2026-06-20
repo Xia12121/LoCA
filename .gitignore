@@ -1,0 +1,29 @@
+# ---- python caches / envs ----
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+.DS_Store
+wandb/
+
+# ---- data, results, logs, model caches (never publish) ----
+backups/
+outputs/
+hf_cache/
+*.csv
+*.log
+
+# ---- server credentials / ops scripts (contain SSH host:port:root) ----
+sync.sh
+
+# ---- unpublished AAAI research write-ups ----
+# Ignore ALL top-level markdown by default (full reports, math specs, paper
+# outline, result tables, status logs, SSH-bearing manifests). Re-include only
+# the public-facing code docs.
+/*.md
+!README.md
+!REPRODUCE.md
+*.bak

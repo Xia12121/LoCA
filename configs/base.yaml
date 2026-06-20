@@ -1,0 +1,27 @@
+# Common configuration shared by all methods (§10).
+model:
+  name: "Qwen/Qwen2.5-0.5B"
+  dtype: "float32"          # CPU-friendly; GPU may use bf16 but efficiency runs must match
+  device: "auto"           # auto -> cuda if available else cpu
+
+adapter:
+  r: 32                    # adapter rank / local regression dim (low sensitivity)
+  s_source: "block_input"  # s_l = h_{l-1}
+
+train:
+  dataset: "tatsu-lab/alpaca"
+  n_train: 5000
+  n_eval: 500
+  max_len: 1024
+  batch_size: 8            # only affects Gram accumulation chunking, not the solution
+
+runtime:
+  cpu_threads: -1          # -1 -> physical cores (CPU experiments)
+  seeds: [0, 1, 2]
+
+eval:
+  tasks: ["perplexity"]    # add "ifeval", "mmlu" when lm-eval is wired
+
+log:
+  csv: "outputs/results.csv"
+  wandb: false

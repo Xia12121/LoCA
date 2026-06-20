@@ -47,4 +47,3 @@ python scripts/phase0.py --model gpt2 --feedback sketch   # GO/NO-GO mechanism g
 
 Phases 1–4 (quality / CPU headline / science curves / ablations) run on the GPU box
 via the scripts above; see `REPRODUCE.md`.
-# LoCA
